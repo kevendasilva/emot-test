@@ -1,14 +1,19 @@
-<p style="color: green"><%= notice %></p>
+<section class="container" id="components-index">
+  <div class="row p-5">
+    <div class="col">
+      <div class="page-title mb-3">
+        <h1>Components</h1>
+        <%= link_to "New component", new_component_path, class: "btn btn-success" %>
+      </div>
 
-<h1>Components</h1>
-
-<div id="components">
-  <% @components.each do |component| %>
-    <%= render component %>
-    <p>
-      <%= link_to "Show this component", component %>
-    </p>
-  <% end %>
-</div>
-
-<%= link_to "New component", new_component_path %>
+      <div id="components">
+        <% @components.each do |component| %>
+          <%= render component %>
+          <p>
+            <%= link_to "Show", component, class: "btn btn-primary" %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

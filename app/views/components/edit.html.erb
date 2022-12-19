@@ -1,10 +1,16 @@
-<h1>Editing component</h1>
+<section class="container" id="component-edit">
+  <div class="row p-5">
+    <div class="col">
+      <h1>Editing component</h1>
 
-<%= render "form", component: @component %>
+      <%= render "form", component: @component %>
 
-<br>
+      <br>
 
-<div>
-  <%= link_to "Show this component", @component %> |
-  <%= link_to "Back to components", components_path %>
-</div>
+      <div>
+        <%= link_to "Show", @component, class: "btn btn-primary" %> |
+        <%= link_to "Back", components_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+</section>

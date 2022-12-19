@@ -1,8 +1,6 @@
 <%= form_with(model: component) do |form| %>
   <% if component.errors.any? %>
     <div style="color: red">
-      <h2><%= pluralize(component.errors.count, "error") %> prohibited this component from being saved:</h2>
-
       <ul>
         <% component.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -18,22 +16,22 @@
 
   <div>
     <%= form.label :kind, style: "display: block" %>
-    <%= form.number_field :kind %>
+    <%= form.select :kind, Component.kinds.keys.map{ |kind| [kind.humanize, kind] } %>
   </div>
 
   <div>
     <%= form.label :port, style: "display: block" %>
-    <%= form.number_field :port %>
+    <%= form.number_field :port, min: 0 %>
   </div>
 
   <div>
     <%= form.label :min_value, style: "display: block" %>
-    <%= form.number_field :min_value %>
+    <%= form.number_field :min_value, min: 0, max: 255 %>
   </div>
 
   <div>
     <%= form.label :max_value, style: "display: block" %>
-    <%= form.number_field :max_value %>
+    <%= form.number_field :max_value, min: 0, max: 255 %>
   </div>
 
   <div>

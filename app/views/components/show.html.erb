@@ -1,10 +1,15 @@
-<p style="color: green"><%= notice %></p>
+<section class="container">
+  <div class="row p-5">
+    <div class="col">
+      <h1>Component</h1>
+    
+      <%= render @component %>
 
-<%= render @component %>
-
-<div>
-  <%= link_to "Edit this component", edit_component_path(@component) %> |
-  <%= link_to "Back to components", components_path %>
-
-  <%= button_to "Destroy this component", @component, method: :delete %>
-</div>
+      <div class="d-flex align-items-center">
+        <%= link_to "Edit", edit_component_path(@component), class: "btn btn-primary" %> |
+        <%= link_to "Back", components_path, class: "btn btn-secondary" %> |
+        <%= button_to "Destroy", @component, method: :delete, class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+</section>
