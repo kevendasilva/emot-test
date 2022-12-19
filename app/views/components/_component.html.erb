@@ -1,0 +1,21 @@
+<section class="container py-3" id="component">
+  <div class="row-p-5">
+    <div class="col">
+      <div id="<%= dom_id component %>">
+        <p>
+          <strong>Name:</strong> <%= component.name %> (<%= component.kind.humanize %>)
+        </p>
+
+        <p>
+          <strong>Port:</strong>
+          <%= component.port %>
+        </p>
+
+        <p>
+          <strong>Min value:</strong> <%= component.min_value %> |
+          <strong>Max value:</strong> <%= component.max_value %>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

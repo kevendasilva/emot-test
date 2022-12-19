@@ -1,0 +1,40 @@
+<%= form_with(model: component) do |form| %>
+  <% if component.errors.any? %>
+    <div style="color: red">
+      <ul>
+        <% component.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :name, style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :kind, style: "display: block" %>
+    <%= form.select :kind, Component.kinds.keys.map{ |kind| [kind.humanize, kind] } %>
+  </div>
+
+  <div>
+    <%= form.label :port, style: "display: block" %>
+    <%= form.number_field :port, min: 0 %>
+  </div>
+
+  <div>
+    <%= form.label :min_value, style: "display: block" %>
+    <%= form.number_field :min_value, min: 0, max: 255 %>
+  </div>
+
+  <div>
+    <%= form.label :max_value, style: "display: block" %>
+    <%= form.number_field :max_value, min: 0, max: 255 %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
