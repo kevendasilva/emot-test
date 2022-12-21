@@ -1,0 +1,19 @@
+<section class="container" id="outputs-index">
+  <div class="row p-5">
+    <div class="col">
+      <div class="page-title mb-3">
+        <h1>Outputs</h1>
+        <%= link_to "New output", new_output_path, class: "btn btn-success" %>
+      </div>
+
+      <div id="outputs">
+        <% @outputs.each do |output| %>
+          <%= render output %>
+          <p>
+            <%= link_to "Show", output, class: "btn btn-primary" %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

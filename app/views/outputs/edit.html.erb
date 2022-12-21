@@ -1,0 +1,18 @@
+<section class="container" id="output-edit">
+  <div class="row p-5">
+    <div class="col">
+      <h1>Editing output</h1>
+
+      <%= render "form", output: @output %>
+
+      <br>
+
+      <div>
+        <%= link_to "Show", @output, class: "btn btn-primary" %> |
+        <%= link_to "Back", outputs_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+

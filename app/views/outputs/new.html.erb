@@ -1,0 +1,15 @@
+<section class="container" id="output-new">
+  <div class="row p-5">
+    <div class="col">
+      <h1>New output</h1>
+
+      <%= render "form", output: @output %>
+
+      <br>
+
+      <div>
+        <%= link_to "Back to outputs", outputs_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,15 @@
+<section class="container">
+  <div class="row p-5">
+    <div class="col">
+      <h1>Output</h1>
+
+      <%= render @output %>
+
+      <div class="d-flex align-items-center">
+        <%= link_to "Edit", edit_output_path(@output), class: "btn btn-primary" %> |
+        <%= link_to "Back", outputs_path, class: "btn btn-secondary" %> |
+        <%= button_to "Destroy", @output, method: :delete, class: "btn btn-danger" %>
+      </div>
+    </div>
+  </div>
+</section>
