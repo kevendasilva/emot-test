@@ -1,10 +1,18 @@
-<h1>Editing output</h1>
+<section class="container" id="output-edit">
+  <div class="row p-5">
+    <div class="col">
+      <h1>Editing output</h1>
 
-<%= render "form", output: @output %>
+      <%= render "form", output: @output %>
 
-<br>
+      <br>
 
-<div>
-  <%= link_to "Show this output", @output %> |
-  <%= link_to "Back to outputs", outputs_path %>
-</div>
+      <div>
+        <%= link_to "Show", @output, class: "btn btn-primary" %> |
+        <%= link_to "Back", outputs_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
+</section>
+
+

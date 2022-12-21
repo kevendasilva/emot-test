@@ -1,17 +1,16 @@
-<div id="<%= dom_id output %>">
-  <p>
-    <strong>Value:</strong>
-    <%= output.value %>
-  </p>
+<section class="container py-3" id="output">
+  <div class="row-p-5">
+    <div class="col">
+      <div id="<%= dom_id output %>">
+        <p>
+          <strong>Value:</strong> <%= output.value %> |
+          <strong>Kind:</strong> <%= output.kind %>
+        </p>
 
-  <p>
-    <strong>Kind:</strong>
-    <%= output.kind %>
-  </p>
-
-  <p>
-    <strong>Component:</strong>
-    <%= output.component_id %>
-  </p>
-
-</div>
+        <p>
+          <strong>Component:</strong> <%= output.component_id %>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
