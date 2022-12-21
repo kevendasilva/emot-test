@@ -21,7 +21,7 @@
 
   <div>
     <%= form.label :component_id, style: "display: block" %>
-    <%= form.select :component_id, Component.all.map { |component| [component.name, component.id] } %>
+    <%= form.select :component_id, available_components(Component.all) %>
   </div>
 
   <div>
