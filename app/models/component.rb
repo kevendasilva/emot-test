@@ -1,5 +1,6 @@
 class Component < ApplicationRecord
   has_one :output, dependent: :destroy
+  has_many :readings, dependent: :destroy
   validates :kind, presence: true
   validates :max_value, presence: true, length: { in: 0..255 }
   validates :min_value, presence: true, length: { in: 0..255 }
