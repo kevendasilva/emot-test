@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_21_203507) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_09_014806) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -33,5 +33,14 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_21_203507) do
     t.index ["component_id"], name: "index_outputs_on_component_id"
   end
 
+  create_table "readings", force: :cascade do |t|
+    t.integer "value"
+    t.bigint "component_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["component_id"], name: "index_readings_on_component_id"
+  end
+
   add_foreign_key "outputs", "components"
+  add_foreign_key "readings", "components"
 end
