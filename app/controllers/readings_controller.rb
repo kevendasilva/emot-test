@@ -12,10 +12,11 @@ class ReadingsController < ApplicationController
 
     respond_to do |format|
       if @reading.save
-        format.html { redirect_to reading_url(@reading), notice: "Reading was successfully created." }
-        format.json { render :show, status: :created, location: @reading }
+        if @reading.component.readings.length > 5
+          Reading.first.destroy
+        end
+        format.json { render :index, status: :created, location: @reading }
       else
-        format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @reading.errors, status: :unprocessable_entity }
       end
     end
