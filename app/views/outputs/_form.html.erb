@@ -19,10 +19,12 @@
     <%= form.select :kind, Output.kinds.keys.map { |kind| [kind.humanize, kind] } %>
   </div>
 
-  <div>
-    <%= form.label :component_id, style: "display: block" %>
-    <%= form.select :component_id, available_components() %>
-  </div>
+  <% unless action_name == "edit" %>
+    <div>
+      <%= form.label :component_id, style: "display: block" %>
+      <%= form.select :component_id, available_components() %>
+    </div>
+  <% end %>
 
   <div>
     <%= form.submit %>
