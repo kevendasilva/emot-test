@@ -1,11 +1,17 @@
-<div id="<%= dom_id reading %>">
-  <p>
-    <strong>Value:</strong>
-    <%= reading.value %>
-  </p>
+<section class="container py-0" id="output">
+  <div class="row-p-5">
+    <div class="col">
+      <div id="<%= dom_id reading %>">
+        <p>
+          <strong>Value:</strong>
+          <%= reading.value %>
+        </p>
 
-  <p>
-    <strong>Component:</strong>
-    <%= reading.component_id %>
-  </p>
-</div>
+        <p>
+          <strong>Component:</strong>
+          <%= reading.component_id %>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

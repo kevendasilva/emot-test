@@ -1,9 +1,15 @@
-<p style="color: green"><%= notice %></p>
+<section class="container" id="readings-index">
+  <div class="row p-5">
+    <div class="col">
+      <div class="page-title mb-3">
+        <h1>Readings</h1>
+      </div>
 
-<h1>Readings</h1>
-
-<div id="readings">
-  <% @readings.each do |reading| %>
-    <%= render reading %>
-  <% end %>
-</div>
+      <div id="readings">
+        <% @readings.each do |reading| %>
+          <%= render reading %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
