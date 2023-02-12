@@ -5,3 +5,17 @@
 .root-text .text {
     font-size: 36px;
 }
+
+p {
+    margin: 0;
+}
+
+.component {
+    border: 1.6px solid #6c757d;
+    border-radius: 7.2px;
+    margin-bottom: 12px;
+}
+
+.component .info {
+    margin-bottom: 12px;
+}

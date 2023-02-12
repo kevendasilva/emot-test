@@ -6,10 +6,6 @@ class ComponentsController < ApplicationController
     @components = Component.all
   end
 
-  # GET /components/1 or /components/1.json
-  def show
-  end
-
   # GET /components/new
   def new
     @component = Component.new
@@ -28,7 +24,7 @@ class ComponentsController < ApplicationController
 
     respond_to do |format|
       if component_saved
-        format.html { redirect_to component_url(@component), notice: "Component was successfully created." }
+        format.html { redirect_to components_url, notice: "Component was successfully created." }
         format.json { render :show, status: :created, location: @component }
       else
         @component.errors.add :min_value, "must be less than the Max value" if greater_than_or_equal
@@ -45,7 +41,7 @@ class ComponentsController < ApplicationController
 
     respond_to do |format|
       if component_updated
-        format.html { redirect_to component_url(@component), notice: "Component was successfully updated." }
+        format.html { redirect_to components_url, notice: "Component was successfully updated." }
         format.json { render :show, status: :ok, location: @component }
       else
         @component.errors.add :min_value, "must be less than the Max value" if greater_than_or_equal
