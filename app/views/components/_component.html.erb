@@ -17,6 +17,10 @@
             <strong>Min value:</strong> <%= component.min_value %> |
             <strong>Max value:</strong> <%= component.max_value %>
           </p>
+        <% else %>
+          <p>
+            <strong>Last reading:</strong> <%= component.readings.last.value %>
+          </p>
         <% end %>
       </div>
     </div>
