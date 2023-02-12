@@ -1,15 +1,19 @@
-<section class="container py-3" id="output">
-  <div class="row-p-5">
-    <div class="col">
-      <div id="<%= dom_id output %>">
-        <p>
-          <strong>Value:</strong> <%= output.value %> |
-          <strong>Kind:</strong> <%= output.kind %>
-        </p>
+<section id="<%= dom_id output %>" class="container py-3 output">
+  <div class="row px-3">
+    <div class="col-lg-9 info">
+      <p>
+        <strong>Value:</strong> <%= output.value %> |
+        <strong>Kind:</strong> <%= output.kind %>
+      </p>
 
-        <p>
-          <strong>Component:</strong> <%= output.component_id %>
-        </p>
+      <p>
+        <strong>Component:</strong> <%= output.component.name %>
+      </p>
+    </div>
+    <div class="col-lg-3 actions">
+      <div class="d-flex justify-content-center">
+        <%= link_to "Edit", edit_output_path(output), class: "btn btn-primary mx-1" %> 
+        <%= button_to "Destroy", output, method: :delete, class: "btn btn-danger" %>
       </div>
     </div>
   </div>

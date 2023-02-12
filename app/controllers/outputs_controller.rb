@@ -6,10 +6,6 @@ class OutputsController < ApplicationController
     @outputs = Output.all
   end
 
-  # GET /outputs/1 or /outputs/1.json
-  def show
-  end
-
   # GET /outputs/new
   def new
     @output = Output.new
@@ -25,7 +21,7 @@ class OutputsController < ApplicationController
 
     respond_to do |format|
       if @output.save
-        format.html { redirect_to output_url(@output), notice: "Output was successfully created." }
+        format.html { redirect_to outputs_url, notice: "Output was successfully created." }
         format.json { render :show, status: :created, location: @output }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +34,7 @@ class OutputsController < ApplicationController
   def update
     respond_to do |format|
       if @output.update(output_params)
-        format.html { redirect_to output_url(@output), notice: "Output was successfully updated." }
+        format.html { redirect_to outputs_url, notice: "Output was successfully updated." }
         format.json { render :show, status: :ok, location: @output }
       else
         format.html { render :edit, status: :unprocessable_entity }
