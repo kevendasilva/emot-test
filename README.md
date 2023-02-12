@@ -1,18 +1,19 @@
 # Navegação <!-- omit in toc -->
 
-- [Sobre](#sobre)
-  - [Primeira versão](#primeira-versão)
+- [**Sobre**](#sobre)
+  - [Começo](#começo)
   - [Banco de dados](#banco-de-dados)
-- [Interface](#interface)
-- [Comunicação com o microcontrolador](#comunicação-com-o-microcontrolador)
+- [**Interface**](#interface)
+- [**Comunicação com o microcontrolador**](#comunicação-com-o-microcontrolador)
   - [Mensagens](#mensagens)
-- [Em desenvolvimento...](#em-desenvolvimento)
+- [**Próximos passos**](#próximos-passos)
+  - [Desafios e considerações](#desafios-e-considerações)
 
-# Sobre
+# **Sobre**
 
-## Primeira versão
+## Começo
 
-Esta versão terá menos componentes e demandará menos programação. Abaixo apresento um diagrama de como será a estrutura básica desta versão.
+Esta é a primeira versão do projeto **The Amazing Flower Monitor** (emot). A versão terá menos componentes e demandará menos programação. Abaixo apresento um diagrama de como será a estrutura base desta versão.
 
 <div align="center">
   <img src="public/simple-version.png">
@@ -50,7 +51,7 @@ A descrição de cada entidade é dada a seguir.
 - Readings: Serão os valores lidos pelos sensores.
     - value: O valor lido pelo sensor.
 
-# Interface
+# **Interface**
 
 A interface é o bloco App, descrito acima. Onde teremos a possibilidade de manipular componentes e suas respectivas saídas, no microcontrolador. A interface não possui muitos detalhes, como cores e outros aspectos de design, não é este o foco. Utilizou-se o Bootstrap 5, para auxiliar na disposição de algumas informações na página.
 
@@ -59,25 +60,16 @@ A interface é o bloco App, descrito acima. Onde teremos a possibilidade de mani
   <p>Pequena página inicial da aplicação.</p>
 </div>
 
-Abaixo a visualização da criação de novos componentes e novas saídas.
+# **Comunicação com o microcontrolador**
 
-<div align="center">
-  <img height="180rem" src="public/new-component.png">
-  <img height="180rem" src="public/new-output.png">
-  <p>Página de criação de componentes e saídas, respectivamente.</p>
-</div>
-
-Algumas validações foram adicionadas na criação de componentes e saídas, evitando erros durante o uso das informações.
-
-# Comunicação com o microcontrolador
-
-A comunicação entre servidor e microcontrolador é feita a partir de mensagens no formato JSON. Inicialmente, o microcontrolador solicita as informações dos componentes que foram cadastrados e realiza as devidas configurações. Verifique a descrição e o código fonte usado no microcontrolador deste projeto, no repositório [emot-mcc](https://github.com/kevendasilva/emot-mcc).
+A comunicação entre servidor (App) e microcontrolador é feita a partir de mensagens no formato JSON. Inicialmente, o microcontrolador solicita as informações dos componentes que foram cadastrados e realiza as devidas configurações. Verifique a descrição e o código fonte usado no microcontrolador deste projeto, no repositório [emot-mcc](https://github.com/kevendasilva/emot-mcc).
 
 ## Mensagens
 
-A seguir, exemplos de mensagens enviadas pelo servidor.
+A seguir, apresento exemplos de mensagens enviadas pelo servidor.
 
 ```json
+// Componente
 {
   "id": 1,
   "name": "LED",
@@ -91,6 +83,7 @@ A seguir, exemplos de mensagens enviadas pelo servidor.
 e, para a saída:
 
 ```json
+// Saída
 {
   "value": 255,
   "kind": "digital",
@@ -98,4 +91,18 @@ e, para a saída:
 }
 ```
 
-# Em desenvolvimento...
+# **Próximos passos**
+
+Diversos aprendizados foram retirados desta versão do projeto, como: limitações do microcontrolador e do servidor. Algumas tarefas, como a escrita de valores lidos pelos sensores, no banco de dados, acaba não sendo tão eficiente, pois precisamos limitar a quantidade de registros de leituras.
+
+Logo, na próxima versão, deverão ser adotadas medidas para solucionar tais problemas. Alguns dos desafios que devem ser solucionados, são apresentados abaixo.
+
+## Desafios e considerações
+
+- Melhorar a interface: usabilidade e visual;
+  - Apresentar os valores lidos pelos sensores, por meio de gráficos.
+- Registrar as operações realizadas pelo microcontrolador;
+  - Implementar um sistema de log.
+- Contornar as limitações do NodeMCU, em relação a quantidade de portas analógicas;
+- Criar a CLI do projeto;
+- E, melhorar o código do microcontrolador, para que seja capaz de lidar com mudanças efetuadas por meio da interface, após a sua inicialização completa.
